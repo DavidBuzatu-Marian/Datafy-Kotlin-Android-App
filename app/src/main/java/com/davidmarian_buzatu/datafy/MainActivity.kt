@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         blogsRecyclerView.adapter = BlogRecyclerViewAdapter(
             listOf(
                 Blog(
-                    "test",
+                    "This is some title",
                     "test2test2test2test2test2test2test2test2test2",
                     "url"
                 ),
                 Blog(
-                    "test",
+                    "Docker.Kubernetes and what not?",
                     "<p>Posted on 10.10.2021</p>\n" +
                             "\n" +
                             "<img src=\"https://i.ibb.co/C2K1gSk/pexels-lee-campbell-115655.jpg\" alt=\"pexels-lee-campbell-115655\"/>\n" +

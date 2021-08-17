@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Datafy</string>
-    <string name="welcome">Hi David,</string>
-    <string name="blogs_header">Your blogs</string>
+    <string name="welcome">Hi David</string>
+    <string name="blogs_header">Your blogs, in one place</string>
+    <string name="blog_recycler_view_card_button_edit">Edit</string>
+    <string name="activity_main_btn_new_blog">Create new blog</string>
+    <string name="blog_recycler_view_card_button_publish">Publish</string>
+    <string name="blog_recycler_view_card_button_delete">Delete</string>
 </resources>

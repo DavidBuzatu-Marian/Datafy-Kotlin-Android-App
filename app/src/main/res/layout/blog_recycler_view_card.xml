@@ -1,32 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/blog_recycler_view_card_tv_title"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="32dp"
-        app:layout_goneMarginStart="32dp"
-        android:textSize="24sp"
-        android:fontFamily="@font/opensans_bold"
-        android:layout_marginTop="16dp"
-        />
-    <TextView
-        android:id="@+id/blog_recycler_view_card_tv_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/blog_recycler_view_card_tv_title"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="32dp"
-        app:layout_goneMarginStart="32dp"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/opensans_regular"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/blog_recycler_view_card_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/opensans_bold"
+                android:text="test"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/blog_recycler_view_card_btn_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:text="@string/blog_recycler_view_card_button_edit"
+                android:textColor="@color/white_background_color"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/blog_recycler_view_card_btn_publish"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/blog_recycler_view_card_tv_title" />
+
+            <Button
+                android:id="@+id/blog_recycler_view_card_btn_publish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/secondary_color"
+                android:text="@string/blog_recycler_view_card_button_publish"
+                android:textColor="@color/white_background_color"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/blog_recycler_view_card_btn_delete"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/blog_recycler_view_card_btn_edit"
+                app:layout_constraintTop_toBottomOf="@id/blog_recycler_view_card_tv_title" />
+
+            <Button
+                android:id="@+id/blog_recycler_view_card_btn_delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/dark_blue_background_color"
+                android:text="@string/blog_recycler_view_card_button_delete"
+                android:textColor="@color/white_background_color"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/blog_recycler_view_card_btn_publish"
+                app:layout_constraintTop_toBottomOf="@id/blog_recycler_view_card_tv_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
