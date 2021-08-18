@@ -3,6 +3,7 @@ package com.davidmarian_buzatu.datafy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import com.davidmarian_buzatu.datafy.blog.BLOG
@@ -26,17 +27,33 @@ class BlogActivity : AppCompatActivity() {
         val editTextBlogTitle: TextInputEditText = findViewById(R.id.activity_blog_tiet_title)
         val editTextBlogContent: TextInputEditText = findViewById(R.id.activity_blog_tiet_content)
 
-        editTextBlogTitle.addTextChangedListener {
-            text -> activityBlog!!.setTitle(text.toString())
-            val textViewBlogTitle: TextView = findViewById(R.id.activity_blog_tv_title)
-            textViewBlogTitle.text = text
-         }
-
-        editTextBlogContent.addTextChangedListener {
-                text -> activityBlog!!.setContent(text.toString())
-            val textViewBlogContent: TextView = findViewById(R.id.activity_blog_tv_content)
-            textViewBlogContent.text = text
+        editTextBlogTitle.addTextChangedListener { text ->
+            changeBlogTitle(text)
+            changeBlogTitleTextView(text)
         }
+
+        editTextBlogContent.addTextChangedListener { text ->
+            changeBlogContent(text)
+            changeBlogContentTextView(text)
+        }
+    }
+
+    private fun changeBlogContent(text: Editable?) {
+        activityBlog!!.setContent(text.toString())
+    }
+
+    private fun changeBlogTitle(text: Editable?) {
+        activityBlog!!.setTitle(text.toString())
+    }
+
+    private fun changeBlogContentTextView(text: Editable?) {
+        val textViewBlogContent: TextView = findViewById(R.id.activity_blog_tv_content)
+        textViewBlogContent.text = text
+    }
+
+    private fun changeBlogTitleTextView(text: Editable?) {
+        val textViewBlogTitle: TextView = findViewById(R.id.activity_blog_tv_title)
+        textViewBlogTitle.text = text
     }
 
     private fun setEditableInitialText() {
