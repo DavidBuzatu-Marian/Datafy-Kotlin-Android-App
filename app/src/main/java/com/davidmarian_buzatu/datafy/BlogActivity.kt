@@ -4,11 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import com.davidmarian_buzatu.datafy.blog.BLOG
 import com.davidmarian_buzatu.datafy.models.Blog
-import com.google.android.material.textfield.TextInputEditText
 
 class BlogActivity : AppCompatActivity() {
     private var activityBlog: Blog? = null
@@ -24,8 +24,8 @@ class BlogActivity : AppCompatActivity() {
     }
 
     private fun setEditableListeners() {
-        val editTextBlogTitle: TextInputEditText = findViewById(R.id.activity_blog_tiet_title)
-        val editTextBlogContent: TextInputEditText = findViewById(R.id.activity_blog_tiet_content)
+        val editTextBlogTitle: EditText = findViewById(R.id.activity_blog_et_title)
+        val editTextBlogContent: EditText = findViewById(R.id.activity_blog_et_content)
 
         editTextBlogTitle.addTextChangedListener { text ->
             changeBlogTitle(text)
@@ -57,8 +57,8 @@ class BlogActivity : AppCompatActivity() {
     }
 
     private fun setEditableInitialText() {
-        val editTextBlogTitle: TextInputEditText = findViewById(R.id.activity_blog_tiet_title)
-        val editTextBlogContent: TextInputEditText = findViewById(R.id.activity_blog_tiet_content)
+        val editTextBlogTitle: EditText = findViewById(R.id.activity_blog_et_title)
+        val editTextBlogContent: EditText = findViewById(R.id.activity_blog_et_content)
 
         editTextBlogTitle.setText(activityBlog!!.getTitle())
         editTextBlogContent.setText(activityBlog!!.getContent())

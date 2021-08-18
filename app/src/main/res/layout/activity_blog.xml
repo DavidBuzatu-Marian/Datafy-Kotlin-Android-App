@@ -23,11 +23,11 @@
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/opensans_bold"
-                android:textSize="32sp"
+                android:text="@string/activity_blog_tv_header"
                 android:textColor="@color/dark_blue_background_color"
+                android:textSize="32sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/activity_blog_tv_header"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/activity_blog_tv_title"
@@ -58,46 +58,68 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp">
 
             <TextView
                 android:id="@+id/activity_blog_tv_edit_blog_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"
-                android:textSize="24sp"
-                android:textColor="@color/dark_green_color"
                 android:fontFamily="@font/opensans_bold"
                 android:text="@string/activity_blog_tv_edit_blog_title"
-                />
+                android:textColor="@color/dark_green_color"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_blog_tiet_title"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_blog_til_edit_blog_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="16dp"
-                android:hint="@string/activity_blog_tiet_blog_title"
-                android:minHeight="48dp"
-                android:textColor="@color/dark_blue_background_color"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_blog_tv_edit_blog_title" />
+                app:layout_constraintTop_toBottomOf="@id/activity_blog_tv_edit_blog_title">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_blog_tiet_content"
+                <EditText
+                    android:id="@+id/activity_blog_et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="false"
+                    android:background="#fff"
+                    android:hint="@string/activity_blog_tiet_blog_title"
+                    android:inputType="textMultiLine"
+
+                    android:minHeight="48dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="32dp"
+                    android:paddingEnd="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_blog_til_edit_blog_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="16dp"
-                android:hint="@string/activity_blog_tiet_blog_content"
-                android:inputType="textMultiLine"
-                android:minHeight="48dp"
-                android:textColor="@color/dark_blue_background_color"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_blog_tiet_title" />
+                app:layout_constraintTop_toBottomOf="@id/activity_blog_til_edit_blog_title">
+
+                <EditText
+                    android:id="@+id/activity_blog_et_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="false"
+                    android:background="#fff"
+                    android:hint="@string/activity_blog_tiet_blog_content"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="32dp"
+                    android:paddingEnd="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
