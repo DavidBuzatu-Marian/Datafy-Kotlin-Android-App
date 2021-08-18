@@ -9,5 +9,6 @@
     <string name="activity_blog_tiet_blog_title">Blog title</string>
     <string name="activity_blog_tiet_blog_content">Content</string>
     <string name="activity_blog_tv_edit_blog_title">Edit blog</string>
-    <string name="activity_blog_tv_header">View blog changes</string>
+    <string name="activity_blog_tv_header">Blog</string>
+    <string name="activity_blog_fab_save_description">Save blog</string>
 </resources>
