@@ -24,18 +24,19 @@
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/opensans_bold"
                 android:textSize="32sp"
+                android:textColor="@color/dark_blue_background_color"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/activity_blog_tv_header"/>
 
             <TextView
                 android:id="@+id/activity_blog_tv_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/opensans_bold"
-                android:textSize="32sp"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_blog_tv_header" />
 
@@ -67,7 +68,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"
-                android:textSize="32sp"
+                android:textSize="24sp"
+                android:textColor="@color/dark_green_color"
                 android:fontFamily="@font/opensans_bold"
                 android:text="@string/activity_blog_tv_edit_blog_title"
                 />
