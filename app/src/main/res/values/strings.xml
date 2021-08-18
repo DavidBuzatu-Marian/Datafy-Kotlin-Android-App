@@ -6,4 +6,8 @@
     <string name="activity_main_btn_new_blog">Create new blog</string>
     <string name="blog_recycler_view_card_button_publish">Publish</string>
     <string name="blog_recycler_view_card_button_delete">Delete</string>
+    <string name="activity_blog_tiet_blog_title">Blog title</string>
+    <string name="activity_blog_tiet_blog_content">Content</string>
+    <string name="activity_blog_tv_edit_blog_title">Edit blog</string>
+    <string name="activity_blog_tv_header">View blog changes</string>
 </resources>
