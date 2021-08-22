@@ -1,4 +1,4 @@
-package com.davidmarian_buzatu.datafy.blog
+package com.davidmarian_buzatu.datafy.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.davidmarian_buzatu.datafy.BlogActivity
+import com.davidmarian_buzatu.datafy.ui.activity.BlogActivity
 import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
 

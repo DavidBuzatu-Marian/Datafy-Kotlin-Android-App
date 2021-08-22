@@ -1,4 +1,4 @@
-package com.davidmarian_buzatu.datafy
+package com.davidmarian_buzatu.datafy.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,9 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import com.davidmarian_buzatu.datafy.blog.BLOG
+import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
+import com.davidmarian_buzatu.datafy.ui.adapter.BLOG
 
 class BlogActivity : AppCompatActivity() {
     private var activityBlog: Blog? = null

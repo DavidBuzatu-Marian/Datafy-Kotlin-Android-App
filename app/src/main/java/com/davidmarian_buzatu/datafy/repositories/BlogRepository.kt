@@ -1,10 +1,11 @@
 package com.davidmarian_buzatu.datafy.repositories
 
-import com.davidmarian_buzatu.datafy.services.Webservice
+import com.davidmarian_buzatu.datafy.services.WebService
+import javax.inject.Inject
 
-class BlogRepository {
+class BlogRepository @Inject constructor(
+    private val webService: WebService
+) {
 
-    private val webservice: Webservice = TODO()
-
-    suspend fun getBlogs() = webservice.getBlogs()
+    suspend fun getBlogs() = webService.getBlogs()
 }
