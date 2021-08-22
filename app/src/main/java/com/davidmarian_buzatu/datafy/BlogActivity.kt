@@ -1,11 +1,11 @@
 package com.davidmarian_buzatu.datafy
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.davidmarian_buzatu.datafy.blog.BLOG
 import com.davidmarian_buzatu.datafy.models.Blog
