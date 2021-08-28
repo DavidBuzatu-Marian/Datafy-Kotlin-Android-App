@@ -18,7 +18,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder()
-        .baseUrl("https://ec2-3-8-127-68.eu-west-2.compute.amazonaws.com:5000/api/")
+        .baseUrl("http://ec2-3-8-127-68.eu-west-2.compute.amazonaws.com:5000/api/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 

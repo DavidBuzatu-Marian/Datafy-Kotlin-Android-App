@@ -6,14 +6,14 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davidmarian_buzatu.datafy.R
-import com.davidmarian_buzatu.datafy.models.BlogViewModel
+import com.davidmarian_buzatu.datafy.models.BlogsViewModel
 import com.davidmarian_buzatu.datafy.ui.adapter.BlogRecyclerViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private val blogViewModel: BlogViewModel by viewModels()
+    private val blogsViewModel: BlogsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val blogsRecyclerView: RecyclerView =
             findViewById(R.id.activity_main_rv_blogs)
         blogsRecyclerView.layoutManager = linearLayoutManager
-        blogViewModel.blogs.observe(this, {
+        blogsViewModel.blogs.observe(this, {
             blogsRecyclerView.adapter = BlogRecyclerViewAdapter(it)
         })
     }
