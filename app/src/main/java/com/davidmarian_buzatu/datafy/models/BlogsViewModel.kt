@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.davidmarian_buzatu.datafy.repositories.BlogsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.nio.charset.StandardCharsets
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel

@@ -7,5 +7,5 @@ class BlogsRepository @Inject constructor(
     private val webService: WebService
 ) {
 
-    suspend fun getBlogs() = webService.getBlogs()
+    suspend fun getBlogs() =  webService.getBlogs()
 }
