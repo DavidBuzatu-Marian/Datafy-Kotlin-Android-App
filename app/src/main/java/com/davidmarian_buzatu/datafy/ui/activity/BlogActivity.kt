@@ -10,7 +10,9 @@ import androidx.core.widget.addTextChangedListener
 import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
 import com.davidmarian_buzatu.datafy.ui.adapter.BLOG
-import java.nio.charset.StandardCharsets
+import io.noties.markwon.Markwon
+import io.noties.markwon.html.HtmlPlugin
+import io.noties.markwon.image.ImagesPlugin
 import java.util.*
 
 class BlogActivity : AppCompatActivity() {
@@ -22,9 +24,24 @@ class BlogActivity : AppCompatActivity() {
         setContentView(R.layout.activity_blog)
 
         setActivityBlog(intent)
+        setCurrentContent()
         setNonEditableInitialText()
         setEditableInitialText()
         setEditableListeners()
+        setMarkwon()
+    }
+
+    private fun setCurrentContent() {
+        currentContent = decodeBase64ToString(activityBlog!!.getContent())
+    }
+
+    private fun setMarkwon() {
+        val textViewBlogContent: TextView = findViewById(R.id.activity_blog_tv_content)
+        val markwon: Markwon = Markwon.builder(this)
+            .usePlugin(HtmlPlugin.create())
+            .usePlugin(ImagesPlugin.create())
+            .build()
+        markwon.setMarkdown(textViewBlogContent, currentContent)
     }
 
     private fun setEditableListeners() {
