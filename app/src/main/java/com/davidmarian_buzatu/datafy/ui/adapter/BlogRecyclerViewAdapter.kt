@@ -1,5 +1,6 @@
 package com.davidmarian_buzatu.datafy.ui.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,7 @@ class BlogRecyclerViewAdapter(private val blogs: List<Blog>) :
     RecyclerView.Adapter<BlogRecyclerViewAdapter.ViewHolder>
         () {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val context = view.context
+        val context: Context = view.context
         val textViewBlogTitle: TextView =
             view.findViewById(R.id.blog_recycler_view_card_tv_title)
         val buttonEditBlog: Button = view.findViewById(R.id.blog_recycler_view_card_btn_edit);

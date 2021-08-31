@@ -10,9 +10,12 @@ import androidx.core.widget.addTextChangedListener
 import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
 import com.davidmarian_buzatu.datafy.ui.adapter.BLOG
+import java.nio.charset.StandardCharsets
+import java.util.*
 
 class BlogActivity : AppCompatActivity() {
     private var activityBlog: Blog? = null
+    private lateinit var currentContent: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +43,7 @@ class BlogActivity : AppCompatActivity() {
     }
 
     private fun changeBlogContent(text: Editable?) {
-        activityBlog!!.setContent(text.toString())
+        currentContent = text.toString()
     }
 
     private fun changeBlogTitle(text: Editable?) {
@@ -62,7 +65,7 @@ class BlogActivity : AppCompatActivity() {
         val editTextBlogContent: EditText = findViewById(R.id.activity_blog_et_content)
 
         editTextBlogTitle.setText(activityBlog!!.getTitle())
-        editTextBlogContent.setText(activityBlog!!.getContent())
+        editTextBlogContent.setText(decodeBase64ToString((activityBlog!!.getContent())))
     }
 
     private fun setNonEditableInitialText() {
@@ -70,10 +73,20 @@ class BlogActivity : AppCompatActivity() {
         val textViewBlogContent: TextView = findViewById(R.id.activity_blog_tv_content)
 
         textViewBlogTitle.text = activityBlog!!.getTitle()
-        textViewBlogContent.text = activityBlog!!.getContent()
+        textViewBlogContent.text = decodeBase64ToString(activityBlog!!.getContent())
     }
 
     private fun setActivityBlog(intent: Intent) {
         activityBlog = intent.getSerializableExtra(BLOG) as Blog
+    }
+
+    private fun decodeBase64ToString(base64String: String): String {
+        println(base64String)
+        val base64Content = Base64.getMimeDecoder().decode(base64String)
+        return String(base64Content)
+    }
+
+    private fun encodeStringToBase64(text: String): String {
+        return Base64.getEncoder().encodeToString(text.encodeToByteArray())
     }
 }
