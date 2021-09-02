@@ -3,19 +3,24 @@ package com.davidmarian_buzatu.datafy.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
 import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
+import com.davidmarian_buzatu.datafy.repositories.BlogsRepository
 import com.davidmarian_buzatu.datafy.ui.adapter.BLOG
 import io.noties.markwon.Markwon
 import io.noties.markwon.html.HtmlPlugin
 import io.noties.markwon.image.ImagesPlugin
+import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
-class BlogActivity : AppCompatActivity() {
+class BlogActivity @Inject constructor(private val blogsRepository: BlogsRepository) : AppCompatActivity() {
     private var activityBlog: Blog? = null
     private lateinit var currentContent: String
 
@@ -29,6 +34,16 @@ class BlogActivity : AppCompatActivity() {
         setEditableInitialText()
         setEditableListeners()
         setMarkwon()
+        setSaveButton()
+    }
+
+    private fun setSaveButton() {
+        val saveButton: Button = findViewById(R.id.activity_blog_fab_save)
+        saveButton.setOnClickListener {
+            lifecycleScope.launch {
+                activityBlog?.let { blog -> blogsRepository.saveBlog(blog) }
+            }
+        }
     }
 
     private fun setCurrentContent() {
