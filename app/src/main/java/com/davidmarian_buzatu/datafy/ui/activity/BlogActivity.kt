@@ -6,12 +6,14 @@ import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
 import com.davidmarian_buzatu.datafy.repositories.BlogRepository
+import com.davidmarian_buzatu.datafy.services.Resource
 import com.davidmarian_buzatu.datafy.ui.adapter.BLOG
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,7 +49,17 @@ class BlogActivity : AppCompatActivity() {
         val saveButton: FloatingActionButton = findViewById(R.id.activity_blog_fab_save)
         saveButton.setOnClickListener {
             lifecycleScope.launch {
-                activityBlog.let { blog -> blogRepository.saveBlog(blog) }
+                activityBlog.let { blog ->
+                    val it = blogRepository.saveBlog(blog)
+                    when (it) {
+                        is Resource.Success -> {
+                            Toast.makeText(this@BlogActivity, "Saved Blog!", Toast.LENGTH_SHORT).show()
+                        }
+                        is Resource.Error -> {
+                            Toast.makeText(this@BlogActivity, "Error saving blog! Error: ${it.errorMessage}. ErrorCode: ${it.errorCode}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }
         }
     }
