@@ -11,8 +11,10 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.davidmarian_buzatu.datafy.R
 import com.davidmarian_buzatu.datafy.models.Blog
-import com.davidmarian_buzatu.datafy.repositories.BlogsRepository
+import com.davidmarian_buzatu.datafy.repositories.BlogRepository
 import com.davidmarian_buzatu.datafy.ui.adapter.BLOG
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 import io.noties.markwon.Markwon
 import io.noties.markwon.html.HtmlPlugin
 import io.noties.markwon.image.ImagesPlugin
@@ -20,9 +22,13 @@ import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
 
-class BlogActivity @Inject constructor(private val blogsRepository: BlogsRepository) : AppCompatActivity() {
+@AndroidEntryPoint
+class BlogActivity : AppCompatActivity() {
     private lateinit var activityBlog: Blog
     private lateinit var currentContent: String
+
+    @Inject
+    lateinit var blogRepository: BlogRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +44,10 @@ class BlogActivity @Inject constructor(private val blogsRepository: BlogsReposit
     }
 
     private fun setSaveButton() {
-        val saveButton: Button = findViewById(R.id.activity_blog_fab_save)
+        val saveButton: FloatingActionButton = findViewById(R.id.activity_blog_fab_save)
         saveButton.setOnClickListener {
             lifecycleScope.launch {
-                activityBlog.let { blog -> blogsRepository.saveBlog(blog) }
+                activityBlog.let { blog -> blogRepository.saveBlog(blog) }
             }
         }
     }
@@ -113,7 +119,6 @@ class BlogActivity @Inject constructor(private val blogsRepository: BlogsReposit
     }
 
     private fun decodeBase64ToString(base64String: String): String {
-        println(base64String)
         val base64Content = Base64.getMimeDecoder().decode(base64String)
         return String(base64Content)
     }

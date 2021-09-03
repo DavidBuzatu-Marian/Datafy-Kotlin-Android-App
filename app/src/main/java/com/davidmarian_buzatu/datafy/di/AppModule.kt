@@ -1,6 +1,5 @@
 package com.davidmarian_buzatu.datafy.di
 
-import com.davidmarian_buzatu.datafy.services.BlogService
 import com.davidmarian_buzatu.datafy.services.WebService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -28,8 +27,8 @@ object AppModule {
     @Provides
     fun provideWebService(retrofit: Retrofit): WebService = retrofit.create(WebService::class.java)
 
-    @Singleton
-    @Provides
-    fun provideBlogService(webService: WebService) = BlogService(webService)
+//    @Singleton
+//    @Provides
+//    fun provideBlogService(webService: WebService) = BlogService(webService)
 
 }
