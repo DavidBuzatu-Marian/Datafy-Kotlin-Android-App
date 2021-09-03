@@ -21,7 +21,7 @@ import java.util.*
 import javax.inject.Inject
 
 class BlogActivity @Inject constructor(private val blogsRepository: BlogsRepository) : AppCompatActivity() {
-    private var activityBlog: Blog? = null
+    private lateinit var activityBlog: Blog
     private lateinit var currentContent: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,13 +41,13 @@ class BlogActivity @Inject constructor(private val blogsRepository: BlogsReposit
         val saveButton: Button = findViewById(R.id.activity_blog_fab_save)
         saveButton.setOnClickListener {
             lifecycleScope.launch {
-                activityBlog?.let { blog -> blogsRepository.saveBlog(blog) }
+                activityBlog.let { blog -> blogsRepository.saveBlog(blog) }
             }
         }
     }
 
     private fun setCurrentContent() {
-        currentContent = decodeBase64ToString(activityBlog!!.getContent())
+        currentContent = decodeBase64ToString(activityBlog.getContent())
     }
 
     private fun setMarkwon() {
@@ -79,7 +79,7 @@ class BlogActivity @Inject constructor(private val blogsRepository: BlogsReposit
     }
 
     private fun changeBlogTitle(text: Editable?) {
-        activityBlog!!.setTitle(text.toString())
+        activityBlog.setTitle(text.toString())
     }
 
     private fun changeBlogContentTextView(text: Editable?) {
@@ -96,16 +96,16 @@ class BlogActivity @Inject constructor(private val blogsRepository: BlogsReposit
         val editTextBlogTitle: EditText = findViewById(R.id.activity_blog_et_title)
         val editTextBlogContent: EditText = findViewById(R.id.activity_blog_et_content)
 
-        editTextBlogTitle.setText(activityBlog!!.getTitle())
-        editTextBlogContent.setText(decodeBase64ToString((activityBlog!!.getContent())))
+        editTextBlogTitle.setText(activityBlog.getTitle())
+        editTextBlogContent.setText(decodeBase64ToString((activityBlog.getContent())))
     }
 
     private fun setNonEditableInitialText() {
         val textViewBlogTitle: TextView = findViewById(R.id.activity_blog_tv_title)
         val textViewBlogContent: TextView = findViewById(R.id.activity_blog_tv_content)
 
-        textViewBlogTitle.text = activityBlog!!.getTitle()
-        textViewBlogContent.text = decodeBase64ToString(activityBlog!!.getContent())
+        textViewBlogTitle.text = activityBlog.getTitle()
+        textViewBlogContent.text = decodeBase64ToString(activityBlog.getContent())
     }
 
     private fun setActivityBlog(intent: Intent) {
